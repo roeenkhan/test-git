@@ -53,8 +53,8 @@ jobs:
   load-test:
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch'
-    needs: Build
-    environment: Load-Test
+    needs: build
+    environment: load-test
     steps:
       - run: |
           echo "Test Load!!!!!1"
@@ -62,7 +62,7 @@ jobs:
 
   prod:
     runs-on: ubuntu-latest
-    needs: [ Test, Load-Test ]
+    needs: [ test, load-test ]
     environment:
       name: Production
       url: https://writeabout.net
