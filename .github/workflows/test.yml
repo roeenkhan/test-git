@@ -40,7 +40,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-  Test:
+  test:
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch'
     needs: Build
@@ -50,7 +50,7 @@ jobs:
           echo "Test"
           sleep 15
 
-  Load-Test:
+  load-test:
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch'
     needs: Build
@@ -60,7 +60,7 @@ jobs:
           echo "Test Load!!!!!1"
           sleep 15
 
-  Production:
+  prod:
     runs-on: ubuntu-latest
     needs: [ Test, Load-Test ]
     environment:
